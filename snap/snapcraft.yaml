@@ -5,7 +5,7 @@ summary: "Free and open source office suite for Linux with O365 UX."
 description: "Highly unstable version of O20 written in QtQuick."
 grade: devel
 confinement: strict
-base: core18
+base: core20
 architectures:
   - amd64
 
@@ -50,10 +50,11 @@ parts:
         stage-packages:
             - flite
             - hunspell-en-us
-            - hunspell-en-uk
-            - hunspell-de
+            - hunspell-de-de
             - hunspell-fr
-            - hunspell-zh
+            - hunspell-es
+            - hunspell-ru
+            - hunspell-cs
 
         configflags:
             - "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON"

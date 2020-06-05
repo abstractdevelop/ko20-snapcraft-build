@@ -1,0 +1,72 @@
+---
+name: ko20
+version: "3.0"
+summary: "Free and open source office suite for Linux with O365 UX."
+description: "Highly unstable version of O20 written in QtQuick."
+grade: devel
+confinement: strict
+base: core18
+architectures:
+  - amd64
+
+apps:
+    ink:
+        command: kf5-launch $SNAP/usr/bin/o20 app:ink
+        common-id: org.gitlab.o20.word.desktop
+        desktop: usr/share/applications/io.gitlab.o20.word.desktop
+        plugs:
+            - browser-support
+            - desktop
+            - desktop-legacy
+            - home
+            - kde-frameworks-5-plug
+            - pulseaudio
+            - opengl
+            - unity7
+            - x11
+
+plugs:
+    kde-frameworks-5-plug:
+        interface: content
+        content: kde-frameworks-5-core18-all 
+        default-provider: kde-frameworks-5-core18
+        target: kf5
+
+parts:
+    o20base:
+        plugin: cmake
+        source-type: git
+        source: https://gitlab.com/abstractsoftware/o20/o20coreapps.git
+        source-branch: qtquick-dev
+
+        build-packages: 
+            - build-essential
+            - libegl1-mesa-dev
+            - sonnet-plugins
+
+        build-snaps: 
+            - kde-frameworks-5-core18-sdk
+
+        stage-packages:
+            - flite
+            - hunspell-en-us
+            - hunspell-en-uk
+            - hunspell-de
+            - hunspell-fr
+            - hunspell-zh
+
+        configflags:
+            - "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON"
+            - "-DCMAKE_INSTALL_PREFIX=/usr"
+            - "-DCMAKE_BUILD_TYPE=Release"
+            - "-DENABLE_TESTING=OFF"
+            - "-DBUILD_TESTING=OFF"
+            - "-DKDE_SKIP_TEST_SETTINGS=ON"
+
+        override-pull: |
+            snapcraftctl pull
+            sed -i.bak -e 's|Icon=io.gitlab.o20.word|Icon=/usr/share/icons/hicolor/scalable/apps/io.gitlab.o20.word.png|g' src/app/io.gitlab.o20.word.desktop
+
+    kde-frameworks-5-env:
+        plugin: dump
+        source: https://github.com/apachelogger/kf5-snap-env.git

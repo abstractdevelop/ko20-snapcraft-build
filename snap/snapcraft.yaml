@@ -5,7 +5,7 @@ summary: "Free and open source office suite for Linux with O365 UX."
 description: "Highly unstable version of O20 written in QtQuick."
 grade: devel
 confinement: strict
-base: core20
+base: core18
 architectures:
   - amd64
 

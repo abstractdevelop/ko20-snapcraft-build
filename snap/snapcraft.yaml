@@ -11,9 +11,8 @@ architectures:
 
 apps:
     ink:
-        command: kf5-launch $SNAP/usr/bin/o20 app:ink
-        common-id: org.gitlab.o20.word.desktop
-        desktop: usr/share/applications/io.gitlab.o20.word.desktop
+        command: kf5-launch $SNAP/usr/bin/o20
+        common-id: io.gitlab.ko20.ink.desktop
         plugs:
             - browser-support
             - desktop
@@ -37,7 +36,7 @@ parts:
         plugin: cmake
         source-type: git
         source: https://gitlab.com/abstractsoftware/ko20-core.git
-        source-tag: 0.1
+        #source-tag: 0.1
 
         build-packages: 
             - build-essential
@@ -48,7 +47,6 @@ parts:
             - kde-frameworks-5-core18-sdk
 
         stage-packages:
-            - flite
             - hunspell-en-us
             - hunspell-de-de
             - hunspell-fr
@@ -63,10 +61,6 @@ parts:
             - "-DENABLE_TESTING=OFF"
             - "-DBUILD_TESTING=OFF"
             - "-DKDE_SKIP_TEST_SETTINGS=ON"
-
-        override-pull: |
-            snapcraftctl pull
-            sed -i.bak -e 's|Icon=io.gitlab.o20.word|Icon=/usr/share/icons/hicolor/scalable/apps/io.gitlab.o20.word.png|g' src/app/io.gitlab.o20.word.desktop
 
     kde-frameworks-5-env:
         plugin: dump

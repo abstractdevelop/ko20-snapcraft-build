@@ -1,6 +1,6 @@
 ---
 name: ko20
-version: "3.0"
+version: "0.1"
 summary: "Free and open source office suite for Linux with O365 UX."
 description: "Highly unstable version of O20 written in QtQuick."
 grade: devel
@@ -36,8 +36,8 @@ parts:
     o20base:
         plugin: cmake
         source-type: git
-        source: https://gitlab.com/abstractsoftware/o20/o20coreapps.git
-        source-branch: qtquick-dev
+        source: https://gitlab.com/abstractsoftware/ko20-core.git
+        source-tag: 0.1
 
         build-packages: 
             - build-essential

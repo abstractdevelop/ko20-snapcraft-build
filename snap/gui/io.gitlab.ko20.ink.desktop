@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=KO20.Ink
-Exec=o20.ink %f
+Exec=ko20.ink %f
 Icon=${SNAP}/meta/gui/io.gitlab.ko20.ink.png
 Type=Application
 Terminal=false

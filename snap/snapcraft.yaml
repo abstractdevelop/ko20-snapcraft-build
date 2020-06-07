@@ -36,7 +36,7 @@ parts:
         plugin: cmake
         source-type: git
         source: https://gitlab.com/abstractsoftware/ko20-core.git
-        source-tag: '0.2'
+        #source-tag: '0.2'
 
         build-packages: 
             - build-essential

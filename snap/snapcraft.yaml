@@ -11,7 +11,7 @@ architectures:
 
 apps:
     ko20:
-        command: kf5-launch $SNAP/usr/bin/o20
+        command: kf5-launch $SNAP/usr/bin/ko20
         common-id: io.gitlab.ko20.desktop
         plugs:
           - browser-support
@@ -23,7 +23,7 @@ apps:
           - x11
 
     ink:
-        command: kf5-launch $SNAP/usr/bin/o20 app:ink
+        command: kf5-launch $SNAP/usr/bin/ko20 app:ink
         common-id: io.gitlab.ko20.ink.desktop
         plugs:
           - browser-support

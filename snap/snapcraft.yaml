@@ -1,6 +1,6 @@
 ---
 name: ko20
-version: "0.4"
+version: "0.5"
 summary: "Free and open source office suite for Linux with O365 UX."
 description: "Highly unstable version of O20 written in QtQuick."
 grade: devel
@@ -10,7 +10,7 @@ architectures:
   - amd64
 
 apps:
-    ko20:
+    core:
         command: kf5-launch $SNAP/usr/bin/ko20
         common-id: io.gitlab.ko20.desktop
         plugs:
@@ -70,7 +70,7 @@ parts:
             - "-DCMAKE_BUILD_TYPE=Release"
             - "-DENABLE_TESTING=OFF"
             - "-DBUILD_TESTING=OFF"
-            - "-DINSTALL_FONT=TRUE"
+            - "-DINSTALL_FONTS=TRUE"
             - "-DKDE_SKIP_TEST_SETTINGS=ON"
 
     kde-frameworks-5-env:

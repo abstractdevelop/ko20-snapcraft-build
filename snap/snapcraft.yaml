@@ -29,7 +29,7 @@ apps:
           - browser-support
           - home
           - kde-frameworks-5-plug
-          - pulseaudio
+          - audio-playback
           - opengl
           - unity7
           - x11
